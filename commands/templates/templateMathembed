@@ -1,0 +1,9 @@
+module.exports = {
+	name: 'template',
+	description: 'template',
+	execute(message, args) {
+		const cmdFile = require(`../functions/embedFile.js`);
+		//cmdFile.vectorMathembed(message, embedName, embedField, picName1, picName2 embedField1, embedFieldTF);
+		cmdFile.vectorMathembed(message, "", "", "", "", "", false");
+	},
+};
