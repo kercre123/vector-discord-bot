@@ -2,7 +2,7 @@ module.exports = {
 	name: 'help',
 	description: 'Show help menu',
 	execute(message, args) {
-		const cmdFile = require(`../functions/helpFile.js`);
+		const cmdFile = require(`../../functions/helpFile.js`);
 		if (args[0] === "behaviors") {
 			cmdFile.helpBehaviors(message);
 		} else if (args[0] === "info") {

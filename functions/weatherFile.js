@@ -1,7 +1,7 @@
 module.exports = {
 weatherCommand: function weatherCommand(message, args, longCommand) {
         const config = require('../protected/config.json');
-        const weatherapiKey = config.weatherAPI
+        const weatherapiKey = config.weatherAPI; 
         const sunw1 = "https://i.imgur.com/dbJClV9.gif";
         const sunw2 = "https://i.imgur.com/qTO6lBE.gif";
         const msg = message.content.toLowerCase();
@@ -49,23 +49,23 @@ weatherCommand: function weatherCommand(message, args, longCommand) {
                         const roundedTemp = Math.round(parsedWeather.main.temp);
 
                         message.channel.send({
-                            embed: {
-                                color: 65280,
+                            embeds: [{
+                                color: 65280, 
                                 fields: [{
-                                    name: `Location: ${parsedWeather.name}, ${parsedWeather.sys.country}`,
-                                    value: `${roundedTemp}° F ${weatherWords[currentWeather]}!`
-                                }],
+                                        name: `Location: ${parsedWeather.name}, ${parsedWeather.sys.country}`, 
+                                        value: `${roundedTemp}° F ${weatherWords[currentWeather]}!`
+                                    }], 
                                 image: {
-                                    url: `${weatherPics[currentWeather]}`,
-                                },
-                                timestamp: new Date(),
+                                    url: `${weatherPics[currentWeather]}`
+                                }, 
+                                timestamp: new Date(), 
                                 footer: {
-                                    text: message.author.username,
-                                    icon_url: message.author.avatarURL,
+                                    text: message.author.username, 
+                                    icon_url: message.author.avatarURL(),
                                 },
+                            }]
+                        });
 
-                            }
-                        })
                     }
                 })
         }
