@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = require('node:path')
+const path = require('node:path');
 const {Client, GatewayIntentBits, Collection, ActivityType} = require('discord.js');
 const client = new Client({
 	intents: [
@@ -40,7 +40,7 @@ const activities_list = [
   "with my cube! | hey vector help",
   "blackjack! | hey vector help",
   "with other bots! | hey vector help",
-  "with my owner! | hey vector help",
+  "with my owner in quarantine | hey vector help",
 ];
 
 client.on("ready", () => {

@@ -25,27 +25,39 @@ infoMain: function infoMain(message, args) {
           inline: false
         },
         {
+          name: "Bot library:", 
+          value: "`discord.js`"
+        },
+        {
           name: "Uptime:", 
           value: `\`${uptime}\``,
           inline: false
         }, 
         {
           name: "RAM Usage:", 
-          value: `${usedMemory}MB`
+          value: `\`${usedMemory}MB\``
         })
       .setTimestamp()
+      .setImage("https://top.gg/api/widget/600070592837844995.png")
       .setFooter({text: message.author.username, iconURL: message.author.avatarURL()});
     message.channel.send({embeds: [finalEmbed]});
   }, 
 projectvic: function projectvic(message, args){
   const finalEmbed = new EmbedBuilder()
-    .setTitle("Project Victor Information")
-    .setDescription("**[Official Main Page](https://www.project-victor.org/)**")
-    .addFields({
-        name: "About:",
-        value: "**Project Victor is a very small, but diverse group of talented developers, who have done this kind of thing before, that want to make the Anki Vector function without these servers. We want each owner to host their own server on a Jetson Nano (maybe even a Raspberry Pi). We want to rebuild him as 100% open-source, so the community can make their own updates for him.**",
-        inline: false
-      })
+    .setFields({
+        name: "See our project page!",
+        value: "https://www.project-victor.org/",
+        inline: false,
+    }, 
+    {
+      name: "Self-host your own server for Vector using Wirepod!", 
+      value: "https://github.com/kercre123/WirePod"
+    },
+    {
+      name: "See and fork Vector's source code (__only DEV bots__) at", 
+      value: "https://github.com/kercre123/victor"
+
+    })
     .setThumbnail("https://i.imgur.com/FPQsUlB.png")
     .setFooter({text: message.author.username, iconURL: message.author.avatarURL()})
     .setTimestamp()
@@ -54,8 +66,26 @@ projectvic: function projectvic(message, args){
 }, 
 botcredits: function botcredits(message, args){ 
   const finalEmbed = new EmbedBuilder() 
-    .setTitle("Vector Bot Credits")
-    .setDescription("**Wire (kercre123)** - Owner & Developer")
+    .setFields({
+      name: "Created by",
+      value: "**kercre123**",
+      inline: false, 
+    }, 
+    {
+      name: "Some of the GIFs were recorded by", 
+      value: "**Redwish#6203**", 
+      inline: false,
+    },
+    {
+      name: "Idea", 
+      value: "**[『Galaxyミ★』]#3641**", 
+      inline: false, 
+    }, 
+    {
+      name: "Inspired by", 
+      value: "**Anki Inc.**", 
+      inline: false, 
+    })
     .setFooter({text: message.author.username, iconURL: message.author.avatarURL()})
     .setTimestamp()
     .setColor(colorMessage);
@@ -63,8 +93,11 @@ botcredits: function botcredits(message, args){
 }, 
 botwebsite: function botwebsite(message, args){
   const finalEmbed = new EmbedBuilder()
-    .setTitle("Vector Bot Website")
-    .setDescription("**🌎[Website](https://wire.my.to)")
+    .setFields({
+      name: "Website", 
+      value: "https://wire.my.to/", 
+      inline: false, 
+    })
     .setFooter({text: message.author.username, iconURL: message.author.avatarURL()})
     .setTimestamp()
     .setColor(colorMessage); 
@@ -77,10 +110,12 @@ botuptime: function botuptime(message, args){
     Math.floor((message.client.uptime % 3600000) / 60000), 
     Math.floor((message.client.uptime % 60000) / 1000),
   ];
-  const uptime = `${days} days (${hours} hours, ${minutes} minutes)`
+  const uptime = `${days} days (${hours} hours and ${minutes === 1 ? "1 minute" : `${minutes} minutes`})`;
   const finalEmbed = new EmbedBuilder() 
-    .setTitle("Vector Bot Uptime")
-    .setDescription(uptime)
+    .setFields({
+      name: "Uptime:", 
+      value: uptime
+    })
     .setFooter({text: message.author.username, iconURL: message.author.avatarURL()})
     .setTimestamp()
     .setColor(colorMessage); 
@@ -88,18 +123,38 @@ botuptime: function botuptime(message, args){
 },
 botservers: function botservers(message, args){ 
   const finalEmbed = new EmbedBuilder()
-    .setTitle("Vector Bot Servers Count")
-    .setDescription(`\`${message.client.guilds.cache.size}\``)
+    .setFields({
+      name: "Server count:", 
+      value: `\`${message.client.guilds.cache.size}\``, 
+      inline: false,
+    })
     .setTimestamp()
+    .setFooter({text: message.author.username, iconURL: message.author.avatarURL()})
     .setColor(colorMessage);
   message.channel.send({embeds: [finalEmbed]});
 }, 
 aboutbot: function aboutbot(message, args){
   const finalEmbed = new EmbedBuilder()
-    .setTitle("About this Bot")
-    .setDescription("This simple discord.js is designed to send GIFs of the cute robot, Anki Vector. Commands are in hey vector help. I use Imgur to upload the GIFs, and use RichEmbed to display them. I try to keep each GIF at a small resolution so they load fast. Commands include: celebrate, snowglobe, new year, yeet, pet, ptdr, angry, good robot, bad robot, any MANY more.")
+    .setFields({
+        name: "Hi, I am the Vector robot! I was made by a company called Anki. They were a good company, made good updates for me, but they recently went out of business.", 
+        value: "Luckily, a company called Digital Dream Labs has bought their assets! I am going to stay alive, and be officially open source!", 
+        inline: false,
+    })
     .setColor(colorMessage)
+    .setFooter({text: message.author.username, iconURL: message.author.avatarURL()})
     .setTimestamp();
   message.channel.send({embeds: [finalEmbed]});
+}, 
+botinvite: function botinvite(message, args){
+  const finalEmbed = new EmbedBuilder()
+    .setFields({
+      name: "Invite Link:", 
+      value: "https://discordapp.com/oauth2/authorize?client_id=600070592837844995&scope=bot&permissions=3247104", 
+      inline: false,
+    })
+    .setColor(colorMessage)
+    .setTimestamp()
+    .setFooter({text: message.author.username, iconURL: message.author.avatarURL()}); 
+  message.channel.send({embeds: [finalEmbed]})
 }
 };

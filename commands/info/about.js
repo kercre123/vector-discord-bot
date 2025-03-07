@@ -4,5 +4,5 @@ module.exports = {
     execute(message, args){
         const cmdFile = require('../../functions/infoFile.js'); 
         cmdFile.aboutbot(message, args)
-    }
-}
+    },
+};
