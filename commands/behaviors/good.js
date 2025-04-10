@@ -2,7 +2,7 @@ module.exports = {
 	name: 'good',
 	description: 'All commands that start with good',
 	execute(message, args) {
-		const cmdFile = require(`../functions/embedFile.js`);
+		const cmdFile = require(`../../functions/embedFile.js`);
 		if (args[0] === "morning") {
 			cmdFile.vectorEmbed(message, "Good morning, " + message.author.username + "!", "none", "OhOWQ2B.gif");
 		} else if (args [0] === "evening" || args [0] === "afternoon") {

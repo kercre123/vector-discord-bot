@@ -7,7 +7,7 @@ module.exports = {
             const longCommand = "yes";
             cmdFile.weatherCommand(message, args, longCommand);
         } else if (args[0] === 'my' && args[1] === 'name') {
-            const cmdFile = require(`../functions/embedFile.js`);
+            const cmdFile = require(`../../functions/embedFile.js`);
             cmdFile.vectorEmbed(message, message.author.username + "!", "none", "iRYMXPz.gif");
         }
     },
