@@ -3,7 +3,7 @@ module.exports = {
     description: "Contains all commands beginning in what's",
     execute(message, args) {
         if (args[0] === 'the' && args[1] === 'weather' && args[2] === 'in') {
-            const cmdFile = require(`../functions/weatherFile.js`);
+            const cmdFile = require(`../../functions/weatherFile.js`);
             const longCommand = "yes";
             cmdFile.weatherCommand(message, args, longCommand);
         } else if (args[0] === 'my' && args[1] === 'name') {

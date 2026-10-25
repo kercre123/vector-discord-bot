@@ -1,7 +1,6 @@
 const { EmbedBuilder} = require("discord.js");
 
-module.exports = {
-infoMain: function infoMain(message, args) {
+function infoMain(message, args) {
     const usedMemory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
     const [days, hours, minutes, seconds] = [
       Math.floor(message.client.uptime / 86400000), 
@@ -9,7 +8,7 @@ infoMain: function infoMain(message, args) {
       Math.floor((message.client.uptime % 3600000) / 60000), 
       Math.floor((message.client.uptime % 60000) / 1000),
     ];
-    const uptime = `${days} days (${hours} hours, ${minutes} minutes)`
+    const uptime = `${days} days (${hours} hours, ${minutes === 1 ? "1 minute" : `${minutes} minutes`})`;
     const finalEmbed = new EmbedBuilder()
       .setColor(colorMessage)
       .setTitle("Vector Bot Information")
@@ -40,9 +39,10 @@ infoMain: function infoMain(message, args) {
       .setTimestamp()
       .setImage("https://top.gg/api/widget/600070592837844995.png")
       .setFooter({text: message.author.username, iconURL: message.author.avatarURL()});
-    message.channel.send({embeds: [finalEmbed]});
-  }, 
-projectvic: function projectvic(message, args){
+  message.channel.send({embeds: [finalEmbed]});
+};
+
+function projectvic(message, args){
   const finalEmbed = new EmbedBuilder()
     .setFields({
         name: "See our project page!",
@@ -63,8 +63,9 @@ projectvic: function projectvic(message, args){
     .setTimestamp()
     .setColor(colorMessage);
   message.channel.send({embeds: [finalEmbed]});
-}, 
-botcredits: function botcredits(message, args){ 
+};
+
+function botcredits(message, args){ 
   const finalEmbed = new EmbedBuilder() 
     .setFields({
       name: "Created by",
@@ -90,8 +91,9 @@ botcredits: function botcredits(message, args){
     .setTimestamp()
     .setColor(colorMessage);
   message.channel.send({embeds: [finalEmbed]});
-}, 
-botwebsite: function botwebsite(message, args){
+};
+
+function botwebsite(message, args){
   const finalEmbed = new EmbedBuilder()
     .setFields({
       name: "Website", 
@@ -102,8 +104,9 @@ botwebsite: function botwebsite(message, args){
     .setTimestamp()
     .setColor(colorMessage); 
   message.channel.send({embeds: [finalEmbed]});
-}, 
-botuptime: function botuptime(message, args){
+};
+
+function botuptime(message, args){
   const [days, hours, minutes, seconds] = [
     Math.floor(message.client.uptime / 86400000), 
     Math.floor((message.client.uptime % 86400000) / 3600000), 
@@ -120,8 +123,9 @@ botuptime: function botuptime(message, args){
     .setTimestamp()
     .setColor(colorMessage); 
   message.channel.send({embeds: [finalEmbed]});
-},
-botservers: function botservers(message, args){ 
+};
+
+function botservers(message, args){ 
   const finalEmbed = new EmbedBuilder()
     .setFields({
       name: "Server count:", 
@@ -132,8 +136,9 @@ botservers: function botservers(message, args){
     .setFooter({text: message.author.username, iconURL: message.author.avatarURL()})
     .setColor(colorMessage);
   message.channel.send({embeds: [finalEmbed]});
-}, 
-aboutbot: function aboutbot(message, args){
+};
+
+function aboutbot(message, args){
   const finalEmbed = new EmbedBuilder()
     .setFields({
         name: "Hi, I am the Vector robot! I was made by a company called Anki. They were a good company, made good updates for me, but they recently went out of business.", 
@@ -144,8 +149,9 @@ aboutbot: function aboutbot(message, args){
     .setFooter({text: message.author.username, iconURL: message.author.avatarURL()})
     .setTimestamp();
   message.channel.send({embeds: [finalEmbed]});
-}, 
-botinvite: function botinvite(message, args){
+};
+
+function botinvite(message, args){
   const finalEmbed = new EmbedBuilder()
     .setFields({
       name: "Invite Link:", 
@@ -156,5 +162,15 @@ botinvite: function botinvite(message, args){
     .setTimestamp()
     .setFooter({text: message.author.username, iconURL: message.author.avatarURL()}); 
   message.channel.send({embeds: [finalEmbed]})
-}
+};
+
+module.exports = {
+  infoMain: infoMain,
+  projectvic: projectvic,
+  botcredits: botcredits, 
+  botwebsite: botwebsite,
+  botuptime: botuptime,
+  botservers: botservers, 
+  aboutbot: aboutbot, 
+  botinvite: botinvite,
 };

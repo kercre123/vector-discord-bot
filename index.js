@@ -43,7 +43,7 @@ const activities_list = [
   "with my owner in quarantine | hey vector help",
 ];
 
-client.on("ready", () => {
+client.on("clientReady", () => {
 	console.log('Ready!')
 	setInterval(() => {
 		const index = Math.floor(Math.random() * activities_list.length); 
@@ -67,7 +67,13 @@ client.on('messageCreate', message => {
 	} 
 	// Check for other conditions, and execute commands
 	if(message.author.bot || !msg.startsWith(prefix.toLowerCase()) || !client.commands.has(command)) return;
-	client.commands.get(command).execute(message, args);
+	try{
+		client.commands.get(command).execute(message, args);
+	} catch(error){
+		console.error(error);
+		message.reply('error occured uh oh');
+	}
+	
 })
 
 client.login(config.token);

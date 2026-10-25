@@ -1,7 +1,6 @@
 const {EmbedBuilder} = require('discord.js')
 
-module.exports = {
-helpMain: function helpMain(message) {
+function helpMain(message) {
   const finalEmbed = new EmbedBuilder()
     .setColor(colorMessage)
     .setTitle("Help & Commands")
@@ -46,9 +45,10 @@ helpMain: function helpMain(message) {
     .setImage("https://i.imgur.com/BnPJS65.png")
     .setTimestamp()
     .setFooter({text: message.author.username, iconURL: message.author.displayAvatarURL()});
-    message.channel.send({ embeds: [finalEmbed] })
-  },
-helpBehaviors: function helpBehaviors(message) {
+  message.channel.send({ embeds: [finalEmbed] })
+};
+
+function helpBehaviors(message) {
   const finalEmbed = new EmbedBuilder()
     .setColor(colorMessage)
     .setTitle("My behaviors/animations:")
@@ -109,9 +109,10 @@ helpBehaviors: function helpBehaviors(message) {
     
     .setTimestamp()
     .setFooter({text: message.author.username, iconURL: message.author.displayAvatarURL()});
-    message.channel.send({ embeds: [finalEmbed] })
-  },
-helpCube: function helpCube(message) {
+  message.channel.send({ embeds: [finalEmbed] })
+};
+
+function helpCube(message) {
   const finalEmbed = new EmbedBuilder()
     .setColor(colorMessage)
     .setTitle("My cube tricks:")
@@ -132,9 +133,10 @@ helpCube: function helpCube(message) {
     
     .setTimestamp()
     .setFooter({text: message.author.username, iconURL: message.author.displayAvatarURL()});
-    message.channel.send({ embeds: [finalEmbed] })
-  },
-helpWeather: function helpWeather(message) {
+  message.channel.send({ embeds: [finalEmbed] })
+};
+
+function helpWeather(message) {
   const finalEmbed = new EmbedBuilder()
     .setColor(colorMessage)
     .setTitle("My weather animations:")
@@ -159,9 +161,10 @@ helpWeather: function helpWeather(message) {
     
     .setTimestamp()
     .setFooter({text: message.author.username, iconURL: message.author.displayAvatarURL()});
-    message.channel.send({ embeds: [finalEmbed] })
-  },
-helpCelebration: function helpCelebration(message) {
+  message.channel.send({ embeds: [finalEmbed] })
+};
+
+function helpCelebration(message) {
   const finalEmbed = new EmbedBuilder()
     .setColor(colorMessage)
     .setTitle("My celebration animations:")
@@ -177,9 +180,10 @@ helpCelebration: function helpCelebration(message) {
     )
     .setTimestamp()
     .setFooter({text: message.author.username, iconURL: message.author.displayAvatarURL()});
-    message.channel.send({ embeds: [finalEmbed] })
-  },
-helpInfo: function helpInfo(message) {
+  message.channel.send({ embeds: [finalEmbed] })
+};
+
+function helpInfo(message) {
   const finalEmbed = new EmbedBuilder()
     .setColor(colorMessage)
     .setTitle("Info commands:")
@@ -200,13 +204,13 @@ helpInfo: function helpInfo(message) {
           "hey vector servers", 
           value: "***hey vector uptime***", 
           inline: false }
-    )
-    
+    ) 
     .setTimestamp()
     .setFooter({text: message.author.username, iconURL: message.author.displayAvatarURL()});
-    message.channel.send({ embeds: [finalEmbed] })
-  },
-helpExtra: function helpInfo(message) {
+  message.channel.send({ embeds: [finalEmbed] })
+}
+
+function helpExtra(message) {
   const finalEmbed = new EmbedBuilder()
     .setColor(colorMessage)
     .setTitle("Other/Extra:")
@@ -236,9 +240,17 @@ helpExtra: function helpInfo(message) {
           value: "**hey vector bricked**", 
           inline: false }
     )
-    
     .setTimestamp()
     .setFooter({text: message.author.username, iconURL: message.author.displayAvatarURL()});
-    message.channel.send({ embeds: [finalEmbed] })
-  }
+  message.channel.send({ embeds: [finalEmbed] })
+};
+
+module.exports = {
+  helpMain: helpMain,
+  helpBehaviors: helpBehaviors,
+  helpCube: helpCube,
+  helpWeather: helpWeather,
+  helpCelebration: helpCelebration,
+  helpInfo: helpInfo,
+  helpExtra: helpExtra
 };
